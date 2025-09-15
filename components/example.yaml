@@ -5,53 +5,39 @@ external_components:
     components: [ somfy_cover ]
 
 esphome:
-  name: pool_light_controller
+  name: pool_light
   platform: ESP32
   board: esp32dev
 
-wifi:
-  ssid: "your_ssid"
-  password: "your_password"
-
+# Enable logging
 logger:
 
-api:
+# Enable Wi-Fi
+wifi:
+  ssid: "Your_SSID"
+  password: "Your_PASSWORD"
 
-ota:
+# Enable Web Server
+web_server:
+  port: 80
 
+# CC1101 Configuration
 cc1101:
   id: cc1101_module
-  cc1101_frequency: 433.42
-  mosi_pin: 12
-  miso_pin: 39
-  clk_pin: 14
-  cs_pin: 15
-  cc1101_emitter_pin: 2
+  cs_pin: GPIO5
+  clk_pin: GPIO18
+  mosi_pin: GPIO23
+  miso_pin: GPIO19
+  reset_pin: GPIO4
+  frequency: 433.42 MHz
 
+# Button configuration to control pool light
 button:
   - platform: pool_light
     id: pool_light_power
     name: "Pool Light Power"
-    id0: 0xF9
-    id1: 0xCB
+    id0: 249
+    id1: 203
     instruction: power
-    mode: pool and spa 3
-    cc1101_module: cc1101_module
-
-  - platform: pool_light
-    id: pool_light_blue
-    name: "Pool Light Blue"
-    id0: 0xF9
-    id1: 0xCB
-    instruction: blue
-    mode: pool only 1
-    cc1101_module: cc1101_module
-
-  - platform: pool_light
-    id: pool_light_mode1
-    name: "Pool Light Mode 1"
-    id0: 0xF9
-    id1: 0xCB
-    instruction: mode1
-    mode: spa only 2
+    mode: poolandspa
     cc1101_module: cc1101_module
