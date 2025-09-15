@@ -43,7 +43,7 @@ CONFIG_SCHEMA = button.BUTTON_SCHEMA.extend({
     cv.Optional(CONF_ID1, default=0xCB): cv.int_range(min=0x00, max=0xFF),
     cv.Optional(CONF_INSTRUCTION, default='power'): cv.one_of(*INSTRUCTION_VALUES.keys(), lower=True),
     cv.Optional(CONF_MODE, default='pool and spa 3'): cv.one_of(*MODE_VALUES.keys(), lower=True),
-    cv.Required(CONF_CC1101_MODULE): cv.use_id(cc1101.CC1101Component),
+    cv.Required(CONF_CC1101_MODULE): cv.use_id(cc1101.CC1101),
 }).extend(cv.COMPONENT_SCHEMA)
 
 async def to_code(config):
