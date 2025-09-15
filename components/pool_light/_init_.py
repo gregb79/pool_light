@@ -32,9 +32,9 @@ INSTRUCTION_VALUES = {
 }
 
 MODE_VALUES = {
-    "pool only 1": 1,
-    "spa only 2": 2,
-    "pool and spa 3": 3,
+    "pool": 1,
+    "spa": 2,
+    "poolandspa": 3,
 }
 
 CONFIG_SCHEMA = button.BUTTON_SCHEMA.extend({
