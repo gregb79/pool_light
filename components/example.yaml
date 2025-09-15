@@ -1,0 +1,55 @@
+external_components:
+  - source: github://your_repo/pool_light@main
+    components: [ pool_light ]
+
+esphome:
+  name: pool_light_controller
+  platform: ESP32
+  board: esp32dev
+
+wifi:
+  ssid: "your_ssid"
+  password: "your_password"
+
+logger:
+
+api:
+
+ota:
+
+cc1101:
+  id: cc1101_module
+  cc1101_frequency: 433.42
+  mosi_pin: 12
+  miso_pin: 39
+  clk_pin: 14
+  cs_pin: 15
+  cc1101_emitter_pin: 2
+
+button:
+  - platform: pool_light
+    id: pool_light_power
+    name: "Pool Light Power"
+    id0: 0xF9
+    id1: 0xCB
+    instruction: power
+    mode: pool and spa 3
+    cc1101_module: cc1101_module
+
+  - platform: pool_light
+    id: pool_light_blue
+    name: "Pool Light Blue"
+    id0: 0xF9
+    id1: 0xCB
+    instruction: blue
+    mode: pool only 1
+    cc1101_module: cc1101_module
+
+  - platform: pool_light
+    id: pool_light_mode1
+    name: "Pool Light Mode 1"
+    id0: 0xF9
+    id1: 0xCB
+    instruction: mode1
+    mode: spa only 2
+    cc1101_module: cc1101_module
