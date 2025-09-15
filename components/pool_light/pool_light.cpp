@@ -1,4 +1,3 @@
-
 #include "pool_light.h"
 
 namespace esphome {
