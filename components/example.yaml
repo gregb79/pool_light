@@ -21,15 +21,14 @@ wifi:
 web_server:
   port: 80
 
-# CC1101 Configuration
 cc1101:
-  id: cc1101_module
-  cs_pin: GPIO5
-  clk_pin: GPIO18
-  mosi_pin: GPIO23
-  miso_pin: GPIO19
-  reset_pin: GPIO4
-  frequency: 433.42 MHz
+  id: "cc1101_module"
+  cc1101_frequency: 433.42
+  mosi_pin: 6
+  miso_pin: 5
+  clk_pin: 4
+  cs_pin: 7
+  cc1101_emitter_pin: 3
 
 # Button configuration to control pool light
 button:
