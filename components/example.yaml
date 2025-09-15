@@ -1,6 +1,8 @@
 external_components:
-  - source: github://your_repo/pool_light@main
-    components: [ pool_light ]
+  - source: github://HarmEllis/esphome-cc1101@main
+    components: [ cc1101 ]
+  - source: github://HarmEllis/esphome-somfy-cover-remote@main
+    components: [ somfy_cover ]
 
 esphome:
   name: pool_light_controller
